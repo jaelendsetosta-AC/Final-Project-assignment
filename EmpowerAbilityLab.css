@@ -3,3 +3,11 @@
     color: #007bff;
     text-decoration: underline;
 }
+
+
+.required {
+    color: red;
+    font-weight: bold;
+}
+
+

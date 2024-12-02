@@ -59,18 +59,19 @@
         <!-- Schedule a Call Section -->
         <section id="schedule-call">
             <h1 class="text-center">Schedule a Call</h1>
-            <form>
+            <p>At Empower Ability Labs, we are dedicated to cultivating empathy and driving positive change through immersive experiences. Fill out the form below and we’ll get back to you as soon as we can to schedule a call with our sales team!</p>
+            <form id="scheduleCallForm">
                 <div class="mb-3">
                     <label for="businessName" class="form-label">Business Name</label>
-                    <input type="text" class="form-control" id="businessName" required>
+                    <input type="text" class="form-control" id="businessName">
                 </div>
                 <div class="mb-3">
                     <label for="phoneNumber" class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                    <input type="tel" class="form-control" id="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" required>
+                    <label for="email" class="form-label"><span class="required">* </span>Email <span class="required">(required)</span></label>
+                    <input type="email" class="form-control" id="email" aria-required="true">
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" id="subscribeUpdates">
@@ -86,6 +87,7 @@
         <p>&copy; Copyright Empower Ability Labs Inc 2023. All rights reserved.</p>
     </footer>
     <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="EmpowerAbilityLab.js"></script>
 </body>
 </html>
