@@ -7,6 +7,17 @@ const errorLinkClass = "error-link";
 const aboutEventDivID = "about-event-div";
 
 document.addEventListener("DOMContentLoaded", () => {
+
+     // Dynamically change title of tab based on the active section
+     const titles = {
+        home: "Home - Empower Ability Labs",
+        services: "Services - Empower Ability Labs",
+        scheduleCall: "Schedule a Call - Empower Ability Labs"
+    };
+
+    // initializing the title of the tab to be the home page
+    document.title = titles.home;
+
     // Function to handle tab switching
     const handleTabSwitch = (event) => {
         // Prevent the default link behavior
@@ -95,23 +106,18 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
 
-    // Dynamically change title of tab based on the active section
-    const titles = {
-        home: "Home - Empower Ability Labs",
-        services: "Services - Empower Ability Labs",
-        scheduleCall: "Schedule a Call - Empower Ability Labs"
-    };
+   
 
     // adding event listeners to the navigation links
-    document.getElementById("home").addEventListener("click", () => {
+    document.getElementById("homeNav").addEventListener("click", () => {
         document.title = titles.home;
     });
 
-    document.getElementById("services").addEventListener("click", () => {
+    document.getElementById("servicesNav").addEventListener("click", () => {
         document.title = titles.services;
     });
 
-    document.getElementById("schedule-call").addEventListener("click", () => {
+    document.getElementById("scheduleCallNav").addEventListener("click", () => {
         document.title = titles.scheduleCall;
     });
 
