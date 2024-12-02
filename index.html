@@ -107,10 +107,12 @@
                 </div>
                 <div class="mb-3">
                     <label for="phoneNumber" class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                    <p id="phone-number-hint"><small>Enter the phone number in the format: 613-123-1234</small></p>
+                    <input type="tel" class="form-control" id="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" aria-describedby="phone-number-hint">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label"><span class="required">* </span>Email <span class="required">(required)</span></label>
+                    <p id="email-hint" class="hidden"><small>Enter a valid email address (e.g., example@gmail.com)</small></p>
                     <input type="email" class="form-control" id="email" aria-required="true">
                 </div>
 

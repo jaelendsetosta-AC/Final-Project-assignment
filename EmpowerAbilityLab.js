@@ -156,7 +156,16 @@ function sendMessageForm(fieldsetLegend, listofErrors){
         // class of "error-link" is given so that we can customize the behaviour
         let listItemHTML = '<li><a href="#' + errorID + '" class="error-link" >' + errorMessage + '</a></li>';
         $('#' + formMessageID + ' ul').append(listItemHTML);
+
+        // if the error is for the email, display the hint
+        if (errorID == 'email'){
+            $('#email-hint').css('display', 'block');
+            $('#email').attr('aria-describedby', 'email-hint');
+        }
+        
     });
+
+    
 
     // add focus to the form message fieldset
     $('#' + formMessageID).attr('tabindex', '-1').focus();
