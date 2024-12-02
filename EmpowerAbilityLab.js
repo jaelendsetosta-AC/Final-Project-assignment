@@ -144,6 +144,8 @@ function sendMessageForm(fieldsetLegend, listofErrors){
     let fieldsetHTML = '<fieldset id="' + formMessageID + '"><legend>' + fieldsetLegend + '</legend><ul></ul></fieldset>';
     $('#'+scheduleFormID).prepend(fieldsetHTML);    
 
+    // check if there are any errors before beginning to traverse through the rest of the code
+    if (fieldsetLegend == thankYou){return;}
 
     // traverse through each error to display it
     // if there are no errors, the list will be empty
@@ -156,6 +158,8 @@ function sendMessageForm(fieldsetLegend, listofErrors){
         $('#' + formMessageID + ' ul').append(listItemHTML);
     });
 
+    // add focus to the form message fieldset
+    $('#' + formMessageID).attr('tabindex', '-1').focus();
 
     // add event listener for error links (using jquery)
     $('.error-link').on('click', function(event) {

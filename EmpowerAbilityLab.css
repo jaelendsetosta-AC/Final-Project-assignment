@@ -66,3 +66,9 @@
 .hidden {
     display: none;
 }
+
+#formMessage:focus {
+    padding: 1em;
+    border: 2px red solid;
+    border-radius: 12px;
+}
