@@ -94,6 +94,27 @@ document.addEventListener("DOMContentLoaded", () => {
     // ensure modal is hidden and focus is not set on load
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
+
+    // Dynamically change title of tab based on the active section
+    const titles = {
+        home: "Home - Empower Ability Labs",
+        services: "Services - Empower Ability Labs",
+        scheduleCall: "Schedule a Call - Empower Ability Labs"
+    };
+
+    // adding event listeners to the navigation links
+    document.getElementById("home").addEventListener("click", () => {
+        document.title = titles.home;
+    });
+
+    document.getElementById("services").addEventListener("click", () => {
+        document.title = titles.services;
+    });
+
+    document.getElementById("schedule-call").addEventListener("click", () => {
+        document.title = titles.scheduleCall;
+    });
+
 });
 
 
