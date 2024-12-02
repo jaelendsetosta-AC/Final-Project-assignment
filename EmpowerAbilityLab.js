@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
    
 
-    // adding event listeners to the navigation links
+    // adding event listeners to the navigation links and changing the title of the tab based on which one was clicked
     document.getElementById("homeNav").addEventListener("click", () => {
         document.title = titles.home;
     });
