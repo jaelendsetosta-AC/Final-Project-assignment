@@ -4,6 +4,7 @@ const scheduleFormID = "scheduleCallForm";
 const error = "Errors";
 const thankYou = "Thank you!"
 const errorLinkClass = "error-link";
+const aboutEventDivID = "about-event-div";
 
 document.addEventListener("DOMContentLoaded", () => {
     // Function to handle tab switching
@@ -166,3 +167,17 @@ function sendMessageForm(fieldsetLegend, listofErrors){
 }
 
 
+// Checkbox and textarea functionality for "Invite a speaker with disabilities to your event"
+$('#' + 'check_2').on('change', function(event){
+
+    // check if the checkbox is selected or not
+    let selected = $(this).prop('checked');
+
+    if (selected){
+        // reveal the text area for "Please tell us about your event"
+        $('#' + aboutEventDivID).css('display', 'block');
+        return;
+    }
+    // hide it if the checkbox is not selected
+    $('#' + aboutEventDivID).css('display', 'none');
+});

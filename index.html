@@ -113,6 +113,31 @@
                     <label for="email" class="form-label"><span class="required">* </span>Email <span class="required">(required)</span></label>
                     <input type="email" class="form-control" id="email" aria-required="true">
                 </div>
+
+                <fieldset>
+                    <legend>What would you like to talk about: </legend>
+                        <div>
+                            <input type="checkbox" name="lab-workshop-days" id="check_1">
+                            <label for="check_1">Awareness lab days  and workshops</label>
+                        </div>
+
+                        <div>
+                            <input type="checkbox" name="disability-speaker" id="check_2">
+                            <label for="check_2">Invite a speaker with disabilities to your event</label>
+                        </div>
+
+                        <div>
+                            <input type="checkbox" name="usability-testing" id="check_3">
+                            <label for="check_3">Usability testing </label>
+                        </div>
+                        
+                </fieldset>
+
+               <div class="hidden mb-3" id="about-event-div">
+                <label for="about-event-input" class="form-label">Please tell us about your event</label><br>
+                <textarea name="about-event" id="about-event-input" class="form-control"></textarea>
+               </div> 
+
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" id="subscribeUpdates">
                     <label class="form-check-label" for="subscribeUpdates">Receive updates and notifications</label>
