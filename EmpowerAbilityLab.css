@@ -27,7 +27,7 @@
 }
 
 .required {
-    color: red;
+    color: #e50000;
     font-weight: bold;
 }
 
