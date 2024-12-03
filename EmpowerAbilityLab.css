@@ -93,3 +93,7 @@ th {
     text-align:left; 
     border-collapse: collapse;
 }
+
+#formMessage {
+    margin-bottom: 2em;
+}

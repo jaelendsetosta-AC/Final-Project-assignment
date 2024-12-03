@@ -6,6 +6,8 @@ const thankYou = "Thank you!"
 const errorLinkClass = "error-link";
 const aboutEventDivID = "about-event-div";
 
+const thankYouMessage = "Thank you for filling out the form to schedule a call! Your request has been received and we will get in touch with you soon to schedule your call.";
+
 document.addEventListener("DOMContentLoaded", () => {
 
      // Dynamically change title of tab based on the active section
@@ -167,12 +169,25 @@ function sendMessageForm(fieldsetLegend, listofErrors){
     // clear the fieldset first
     clearElement(formMessageID);
 
-    // create a field set for the messages
-    let fieldsetHTML = '<fieldset id="' + formMessageID + '"><legend>' + fieldsetLegend + '</legend><ul></ul></fieldset>';
+    let fieldsetHTML = '';
+
+
+    if (fieldsetLegend == thankYou){
+        fieldsetHTML = '<fieldset id="' + formMessageID + '"><legend>' + fieldsetLegend + '</legend></fieldset>';
+    }else {
+        fieldsetHTML = '<fieldset id="' + formMessageID + '"><legend>' + fieldsetLegend + '</legend><ul></ul></fieldset>';
+    }
+
     $('#'+scheduleFormID).prepend(fieldsetHTML);    
 
     // check if there are any errors before beginning to traverse through the rest of the code
-    if (fieldsetLegend == thankYou){return;}
+    if (fieldsetLegend == thankYou){
+        // if there are no errors, just add a thank you message
+        $('#' + formMessageID).append(thankYouMessage);
+        $('#' + formMessageID).attr('aria-live', 'polite');
+        $('#' + formMessageID).attr('tabindex', '-1').focus();
+        return;
+    }
 
     // traverse through each error to display it
     // if there are no errors, the list will be empty
