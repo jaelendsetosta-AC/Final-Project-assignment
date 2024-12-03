@@ -10,12 +10,16 @@ const thankYouMessage = "Thank you for filling out the form to schedule a call! 
 
 document.addEventListener("DOMContentLoaded", () => {
 
-     // Dynamically change title of tab based on the active section
+    // Dynamically change title of tab based on the active section
      const titles = {
         home: "Home - Empower Ability Labs",
         services: "Services - Empower Ability Labs",
-        scheduleCall: "Schedule a Call - Empower Ability Labs"
+        "schedule-call": "Schedule a Call - Empower Ability Labs"
     };
+
+    // shared constants
+    const sections = document.querySelectorAll("#home, #services, #schedule-call");
+    const navLinks = document.querySelectorAll(".nav-link");
 
     // initializing the title of the tab to be the home page
     document.title = titles.home;
@@ -26,13 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
 
         // Get all toggleable nav link sections ( home , services , schedule a call )
-        const sections = document.querySelectorAll("#home, #services, #schedule-call");
+        
         sections.forEach((section) => {
             section.style.display = "none";
         });
 
         // Remove active class from all nav links
-        const navLinks = document.querySelectorAll(".nav-link");
+       
         navLinks.forEach((link) => {
             link.classList.remove("active");
         });
@@ -49,10 +53,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Mark the clicked link as active
         event.target.classList.add("active");
+
+        // Update the browser history
+        window.history.pushState({ section: targetId }, titles[targetId], '#${targetId}');
+
+        // Dynamically update the tab title
+        document.title = titles[targetId];
     };
 
+    // Make sure the back and forward button do not exit the SPA
+    window.addEventListener("popstate", (event) => {
+        const sectionId = event.state?.section || "home"; // default to the home section if no state exists currently
+
+        // Show the appropriate section
+        sections.forEach((section) => {
+            section.style.display = "none";
+        });
+
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            targetSection.style.display = "block";
+        }
+
+        // Update the document title
+        document.title = titles[sectionId];
+
+        // Update the active nav link
+        navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${sectionId}`) {
+                link.classList.add("active");
+            }
+        });
+    });
+
     // Attach click event listeners to all navigation links
-    const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((link) => {
         link.addEventListener("click", handleTabSwitch);
     });
@@ -67,18 +102,51 @@ document.addEventListener("DOMContentLoaded", () => {
     // Mark the Home tab as active
     document.querySelector(".nav-link[href='#home']").classList.add("active");
 
-    // Open Community Modal Functionality
+    // Open Community Modal Functionality and focus trapping
     const openModalButton = document.getElementById("modalButton");
+    const focusableElementsString = 'button';
     const modal = document.getElementById("communityModal");
     const closeModalButton = modal.querySelectorAll(".close-modal")
+    let focusableElements = [];
+    let firstFocus;
+    let lastFocus;
 
     
     openModalButton.addEventListener("click", () => {
           modal.style.display = "flex";
           modal.setAttribute("aria-hidden", "false");
           modal.querySelector(".modal-content").focus();
+
+          // get all focusable elements inside the modal
+          focusableElements = modal.querySelectorAll(focusableElementsString);
+          firstFocus = focusableElements[0];
+          lastFocus = focusableElements[focusableElements.length - 1];
+
+          // put focus on the first focusable element
+          firstFocus.focus();
+
+          // add event listener for focus trapping
+          document.addEventListener("keydown", trapFocus);
      });
    
+     // trap focus within the modal
+     function trapFocus(event) {
+        if (event.key === "Tab") {
+            if (event.shiftKey) {
+                // wrap the focus to the last element if it is on the first element and shift + tab is used to navigate
+                if (document.activeElement === firstFocus ) {
+                    event.preventDefault();
+                    lastFocus.focus();
+                }
+            }else {
+                // wrap focus to first element if at the last element
+                if (document.activeElement === lastFocus ) {
+                    event.preventDefault();
+                    firstFocus.focus();
+                }
+            }
+        } 
+     }
 
     // Close Community Modal Functionality
     closeModalButton.forEach((button) => {
@@ -107,21 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // ensure modal is hidden and focus is not set on load
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
-
-   
-
-    // adding event listeners to the navigation links and changing the title of the tab based on which one was clicked
-    document.getElementById("homeNav").addEventListener("click", () => {
-        document.title = titles.home;
-    });
-
-    document.getElementById("servicesNav").addEventListener("click", () => {
-        document.title = titles.services;
-    });
-
-    document.getElementById("scheduleCallNav").addEventListener("click", () => {
-        document.title = titles.scheduleCall;
-    });
 
 });
 
