@@ -24,6 +24,25 @@ document.addEventListener("DOMContentLoaded", () => {
     // initializing the title of the tab to be the home page
     document.title = titles.home;
 
+    // constants for dealing with burger menu
+    const toggleButton = document.querySelector(".navbar-toggler");
+    const menu = document.getElementById("navbarNav");
+
+    toggleButton.addEventListener("click", () => {
+        const isExpanded = toggleButton.getAttribute("aria-expanded") ==="true";
+
+        // change aria-expanded attribute
+        toggleButton.setAttribute("aria-expanded", !isExpanded);
+
+        // toggle the 'show' class on the menu for css purposes
+        if (isExpanded) {
+            menu.classList.remove("show");
+        } else {
+            menu.classList.add("show");
+        }
+    });
+    
+
     // Function to handle tab switching
     const handleTabSwitch = (event) => {
         // Prevent the default link behavior

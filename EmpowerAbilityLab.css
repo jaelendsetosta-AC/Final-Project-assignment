@@ -127,3 +127,11 @@ th {
 #on-display {
     display: none;
 }
+
+.collapse {
+    display: none;
+}
+
+.collapse.show {
+    display: block;
+}
