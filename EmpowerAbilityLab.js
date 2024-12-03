@@ -236,3 +236,17 @@ $('#' + 'check_2').on('change', function(event){
     // hide it if the checkbox is not selected
     $('#' + aboutEventDivID).css('display', 'none');
 });
+
+
+// Switch between On and Off display for the switch button
+$('#subscribeUpdates').on('change', function(event){
+
+    let on = $(this).prop('checked');
+    if (on){
+        $('#on-display').css('display', 'inline');
+        $('#off-display').css('display', 'none');
+    }else {
+        $('#on-display').css('display', 'none');
+        $('#off-display').css('display', 'inline');
+    }
+});

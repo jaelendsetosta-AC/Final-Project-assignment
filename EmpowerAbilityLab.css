@@ -97,3 +97,12 @@ th {
 #formMessage {
     margin-bottom: 2em;
 }
+
+.on-off {
+    padding-left: 1em;
+    font-weight: bold;
+}
+
+#on-display {
+    display: none;
+}
