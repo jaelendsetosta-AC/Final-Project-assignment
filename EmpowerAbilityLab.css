@@ -4,6 +4,27 @@
     text-decoration: underline;
 }
 
+.header-and-footer-background {
+    background-color: #737373; /* Dark gray for better contrast */
+    color: #FFFFFF; /* White text for the navbar */
+}
+
+.header-and-footer-background a {
+    color: #FFFFFF; /* Default link color */
+}
+
+.header-and-footer-background a.active {
+    color: #F0F0F0; /* Light gray for active link */
+}
+
+.header-and-footer-background a:hover {
+    color: #1c1b1b; /* Light gray for hover effect */
+}
+
+.footer p{
+    background-color: #737373;
+    color: #ffffff;
+}
 
 .required {
     color: red;
