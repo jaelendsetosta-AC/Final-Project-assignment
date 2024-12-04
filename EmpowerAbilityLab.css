@@ -5,6 +5,11 @@
     
 }
 
+a:focus, :focus, .nav-link.active:focus, input:focus, form-check-input:focus, select:focus, textarea:focus, .form-control:focus, .header-and-footer-background:focus, a:focus, .header-and-footer-background:focus, .header-and-footer-background a:focus, .footer p:focus, .required:focus, .btn:focus, #subscribeUpdates:focus {
+     outline: 3px solid #FFD700;
+    outline-offset: 2px;
+}
+
 .header-and-footer-background {
     background-color: #737373; /* Dark gray for better contrast */
     color: #FFFFFF; /* White text for the navbar */
