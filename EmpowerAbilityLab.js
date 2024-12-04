@@ -189,6 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", () => {
             modal.style.display = "none";
             modal.setAttribute("aria-hidden", "true");
+            openModalButton.focus();
         });
     });
 
@@ -197,6 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.target === modal) {
             modal.style.display = "none";
             modal.setAttribute("aria-hidden", "true");
+            openModalButton.focus();
         }
     });
 
@@ -205,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
             modal.style.display = "none";
             modal.setAttribute("aria-hidden", "true");
+            openModalButton.focus();
         }
     })
 
