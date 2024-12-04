@@ -15,14 +15,14 @@
             <a class="navbar-brand" href="#">
                 <img src="images/empowerabilitylabslogo.png" alt="Empower Ability Labs Logo" height="30">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <nav class="collapse navbar-collapse" id="navbarNav">
+            <nav class="collapse navbar-collapse" id="navbarNav" aria-label="Main Navigation">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a id="homeNav" class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a id="servicesNav" class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a id="scheduleCallNav" class="nav-link" href="#schedule-call">Schedule a Call</a></li>
+                    <li class="nav-item"><a id="homeNav" class="nav-link" href="#home" tabindex="0">Home</a></li>
+                    <li class="nav-item"><a id="servicesNav" class="nav-link" href="#services" tabindex="0">Services</a></li>
+                    <li class="nav-item"><a id="scheduleCallNav" class="nav-link" href="#schedule-call" tabindex="0">Schedule a Call</a></li>
                 </ul>
             </nav>
         </div>
@@ -30,7 +30,7 @@
 
     <main class="container mt-5 pt-5">
         <!-- Home Section -->
-        <section id="home">
+        <section id="home" tabindex="-1">
             <h1 class="display-4 text-center">Welcome to Empower Ability Labs!</h1>
             <p class="lead text-center">
                 Empower Ability Labs is a hub for learning and empathy-building.  We are on a mission to foster understanding and promote inclusive digital experiences for all. 
@@ -125,7 +125,7 @@
 
 
         <!-- Services Section -->
-        <section id="services">
+        <section id="services" tabindex="-1">
             <h1 class="text-center">Our Services</h1>
             <div class="row text-center">
                 <p>
@@ -166,7 +166,7 @@
         </section>
 
         <!-- Schedule a Call Section -->
-        <section id="schedule-call">
+        <section id="schedule-call" tabindex="-1">
             <h1 class="text-center">Schedule a Call</h1>
             <p>At Empower Ability Labs, we are dedicated to cultivating empathy and driving positive change through immersive experiences. Fill out the form below and we’ll get back to you as soon as we can to schedule a call with our sales team!</p>
             <form id="scheduleCallForm">

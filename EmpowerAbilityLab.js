@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // shared constants
     const sections = document.querySelectorAll("#home, #services, #schedule-call");
     const navLinks = document.querySelectorAll(".nav-link");
+    const navLinksList = Array.from(navLinks);
 
     // initializing the title of the tab to be the home page
     document.title = titles.home;
@@ -40,6 +41,21 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             menu.classList.add("show");
         }
+    });
+
+    // allow arrow key movement in the navbar
+    navLinks.forEach((link, index) => {
+        link.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowRight") {
+                event.preventDefault();
+                const nextIndex = (index + 1) % navLinksList.length;
+                navLinksList[nextIndex].focus();
+            } else if (event.key === "ArrowLeft") {
+                event.preventDefault();
+                const prevIndex = (index - 1 + navLinksList.length) % navLinksList.length;
+                navLinksList[prevIndex].focus();
+            }
+        });
     });
     
 
@@ -67,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Show the target section
         if (targetSection) {
             targetSection.style.display = "block";
+            targetSection.focus();
             console.log(targetSection);
         }
 
