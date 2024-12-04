@@ -323,10 +323,12 @@ $('#' + 'check_2').on('change', function(event){
     if (selected){
         // reveal the text area for "Please tell us about your event"
         $('#' + aboutEventDivID).css('display', 'block');
+        $('#check_2').attr('aria-expanded', 'true');
         return;
     }
     // hide it if the checkbox is not selected
     $('#' + aboutEventDivID).css('display', 'none');
+    $('#check_2').attr('aria-expanded', 'false');
 });
 
 
